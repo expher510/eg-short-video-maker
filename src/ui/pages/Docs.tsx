@@ -8,6 +8,47 @@ const Docs: React.FC = () => {
         Documentation
       </Typography>
 
+      {/* Base URLs Card */}
+      <Paper sx={{ 
+        p: 4, 
+        mb: 4, 
+        backgroundColor: 'rgba(10, 25, 47, 0.85)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(100, 255, 218, 0.3)',
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.4)',
+      }}>
+        <Typography variant="h5" component="h2" gutterBottom sx={{ color: '#64ffda', fontWeight: 600 }}>
+          🌐 Base URLs
+        </Typography>
+        <Typography variant="body2" sx={{ color: '#8892b0', mb: 3 }}>
+          Use the following base URLs to connect to the REST API and MCP Server from any external tool (n8n, Claude, Cursor, etc.).
+        </Typography>
+
+        <Box sx={{ mb: 3 }}>
+          <Typography variant="subtitle1" sx={{ color: '#ccd6f6', fontWeight: 700, mb: 1 }}>REST API Base URL</Typography>
+          <Box sx={{ p: 2, backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: 2, border: '1px solid rgba(100,255,218,0.2)' }}>
+            <pre style={{ margin: 0, color: '#64ffda', fontFamily: 'monospace', fontSize: '0.95rem' }}>
+{`https://egauto-eg-short-video-maker.hf.space`}
+            </pre>
+          </Box>
+          <Typography variant="caption" sx={{ color: '#8892b0', mt: 1, display: 'block' }}>
+            Example: POST https://egauto-eg-short-video-maker.hf.space/api/short-video
+          </Typography>
+        </Box>
+
+        <Box sx={{ mb: 1 }}>
+          <Typography variant="subtitle1" sx={{ color: '#ccd6f6', fontWeight: 700, mb: 1 }}>MCP Server SSE URL</Typography>
+          <Box sx={{ p: 2, backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: 2, border: '1px solid rgba(100,255,218,0.2)' }}>
+            <pre style={{ margin: 0, color: '#64ffda', fontFamily: 'monospace', fontSize: '0.95rem' }}>
+{`https://egauto-eg-short-video-maker.hf.space/mcp/sse`}
+            </pre>
+          </Box>
+          <Typography variant="caption" sx={{ color: '#8892b0', mt: 1, display: 'block' }}>
+            Use this URL when configuring your AI agent (n8n, Claude Desktop, etc.) to connect via MCP.
+          </Typography>
+        </Box>
+      </Paper>
+
       {/* REST API Section */}
       <Paper sx={{ 
         p: 4, 
