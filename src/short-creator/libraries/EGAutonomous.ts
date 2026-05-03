@@ -61,10 +61,16 @@ export class EGAutonomousAPI {
           }
         );
 
-        logger.info({ jobId, status: pollResponse.data.status }, "Polling EG-Autonomous API");
+        const data = Array.isArray(pollResponse.data) ? pollResponse.data[0] : pollResponse.data;
+        const statusOrState = data.status || data.state;
 
-        if (pollResponse.data.success && pollResponse.data.status === "completed") {
-          const videoUrl = pollResponse.data.videos?.[0];
+        logger.info({ jobId, state: statusOrState }, "Polling EG-Autonomous API");
+
+        if (data.success && statusOrState === "completed") {
+          let videoUrl = data.videos?.[0];
+          if (videoUrl && typeof videoUrl === "object" && "url" in videoUrl) {
+            videoUrl = videoUrl.url;
+          }
           if (!videoUrl) {
             throw new Error("Job completed but no video URL found");
           }
@@ -81,7 +87,7 @@ export class EGAutonomousAPI {
           };
         }
 
-        if (pollResponse.data.status === "failed") {
+        if (statusOrState === "failed") {
           throw new Error("Video generation job failed");
         }
 
