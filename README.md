@@ -96,7 +96,7 @@ Shorts Creator takes simple text inputs and search terms, then:
 # Limitations
 
 - The project only capable generating videos with English voiceover (kokoro-js doesn’t support other languages at the moment)
-- The background videos are sourced from Pexels
+- The background videos are generated via EG-Autonomous API
 
 # General Requirements
 
@@ -224,6 +224,7 @@ You can load it on http://localhost:3123
 | key             | description                                                     | default |
 | --------------- | --------------------------------------------------------------- | ------- |
 | PEXELS_API_KEY  | [your (free) Pexels API key](https://www.pexels.com/api/)       |         |
+| EG_AUTONOMOUS_API_KEY | Your API key for EG-Autonomous video generation | |
 | LOG_LEVEL       | pino log level                                                  | info    |
 | WHISPER_VERBOSE | whether the output of whisper.cpp should be forwarded to stdout | false   |
 | PORT            | the port the server will listen on                              | 3123    |
