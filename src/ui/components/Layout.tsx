@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import VideoIcon from '@mui/icons-material/VideoLibrary';
 import AddIcon from '@mui/icons-material/Add';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -109,6 +110,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             >
               EG AUTONOMOUS
             </Typography>
+            <Button 
+              color="inherit" 
+              startIcon={<DescriptionIcon />}
+              onClick={() => navigate('/docs')}
+              sx={{ mr: 2 }}
+            >
+              API Docs
+            </Button>
             <Button 
               color="inherit" 
               startIcon={<AddIcon />}
