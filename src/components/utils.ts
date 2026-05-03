@@ -136,11 +136,6 @@ export function getOrientationConfig(orientation: OrientationEnum) {
       height: 1920,
       component: AvailableComponentsEnum.PortraitVideo,
     },
-    landscape: {
-      width: 1920,
-      height: 1080,
-      component: AvailableComponentsEnum.LandscapeVideo,
-    },
   };
 
   return config[orientation];

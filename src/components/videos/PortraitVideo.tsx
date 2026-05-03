@@ -5,6 +5,7 @@ import {
   useVideoConfig,
   Audio,
   OffthreadVideo,
+  Loop,
 } from "remotion";
 import { z } from "zod";
 import { loadFont } from "@remotion/google-fonts/BarlowCondensed";
@@ -88,7 +89,9 @@ export const PortraitVideo: React.FC<z.infer<typeof shortVideoSchema>> = ({
             durationInFrames={durationInFrames}
             key={`scene-${i}`}
           >
-            <OffthreadVideo src={video} muted />
+            <Loop durationInFrames={Math.round(5 * fps)}>
+              <OffthreadVideo src={video} muted />
+            </Loop>
             <Audio src={audio.url} />
             {pages.map((page, j) => {
               return (

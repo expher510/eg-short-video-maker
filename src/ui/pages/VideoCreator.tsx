@@ -321,25 +321,7 @@ const VideoCreator: React.FC = () => {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
-              <FormControl fullWidth>
-                <InputLabel>Orientation</InputLabel>
-                <Select
-                  value={config.orientation}
-                  onChange={(e) =>
-                    handleConfigChange("orientation", e.target.value)
-                  }
-                  label="Orientation"
-                  required
-                >
-                  {Object.values(OrientationEnum).map((orientation) => (
-                    <MenuItem key={orientation} value={orientation}>
-                      {orientation}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
+
 
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>

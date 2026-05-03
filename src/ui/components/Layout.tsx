@@ -20,12 +20,16 @@ interface LayoutProps {
 
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
-      main: '#1976d2',
+      main: '#0a192f', // Dark tech blue
     },
     secondary: {
-      main: '#f50057',
+      main: '#64ffda', // Tech accent
+    },
+    background: {
+      default: '#020c1b',
+      paper: '#112240',
     },
   },
   typography: {
@@ -46,10 +50,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <Typography 
               variant="h6" 
               component="div" 
-              sx={{ flexGrow: 1, cursor: 'pointer' }}
+              sx={{ flexGrow: 1, cursor: 'pointer', fontWeight: 'bold', letterSpacing: 1 }}
               onClick={() => navigate('/')}
             >
-              Short Video Maker
+              EG AUTONOMOUS
             </Typography>
             <Button 
               color="inherit" 
@@ -68,12 +72,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           sx={{ 
             py: 3, 
             mt: 'auto', 
-            backgroundColor: (theme) => theme.palette.grey[200],
+            backgroundColor: (theme) => theme.palette.background.paper,
             textAlign: 'center'
           }}
         >
           <Typography variant="body2" color="text.secondary">
-            Short Video Maker &copy; {new Date().getFullYear()}
+            EG AUTONOMOUS &copy; {new Date().getFullYear()}
           </Typography>
         </Box>
       </Box>

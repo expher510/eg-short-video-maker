@@ -35,7 +35,7 @@ export const sceneInput = z.object({
   searchTerms: z
     .array(z.string())
     .describe(
-      "Search terms to generate the background video. These words will be combined into a single prompt for the EG-Autonomous API. IMPORTANT: The generated video is fixed at 5 seconds long. Keep the spoken 'text' short (under 5 seconds of speech) per scene to avoid the video freezing on the last frame, and split longer paragraphs into multiple scenes.",
+      "Search terms to generate the background video. You can provide multiple prompts separated by commas. These words will be combined into a single prompt for the EG-Autonomous API. IMPORTANT: The generated video is fixed at 5 seconds long. Keep the spoken 'text' short (under 5 seconds of speech) per scene, and split longer paragraphs into multiple scenes. As a last resort, the system will automatically loop the 5-second video if the scene is longer.",
     ),
 });
 export type SceneInput = z.infer<typeof sceneInput>;
@@ -72,7 +72,6 @@ export enum VoiceEnum {
 }
 
 export enum OrientationEnum {
-  landscape = "landscape",
   portrait = "portrait",
 }
 
