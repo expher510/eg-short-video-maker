@@ -61,7 +61,7 @@ export class EGAutonomousAPI {
           }
         );
 
-        logger.debug({ jobId, status: pollResponse.data.status }, "Polling EG-Autonomous API");
+        logger.info({ jobId, status: pollResponse.data.status }, "Polling EG-Autonomous API");
 
         if (pollResponse.data.success && pollResponse.data.status === "completed") {
           const videoUrl = pollResponse.data.videos?.[0];
