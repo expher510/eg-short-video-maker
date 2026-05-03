@@ -193,7 +193,7 @@ test("test me", async () => {
     [
       {
         text: "test",
-        searchTerms: ["test"],
+        videoPrompts: ["test"],
       },
     ],
     {},

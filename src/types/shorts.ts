@@ -32,10 +32,10 @@ export type Scene = {
 
 export const sceneInput = z.object({
   text: z.string().describe("Text to be spoken in the video"),
-  searchTerms: z
+  videoPrompts: z
     .array(z.string())
     .describe(
-      "Search terms to generate the background video. You can provide multiple prompts separated by commas. These words will be combined into a single prompt for the EG-Autonomous API. IMPORTANT: The generated video is fixed at 5 seconds long. Keep the spoken 'text' short (under 5 seconds of speech) per scene, and split longer paragraphs into multiple scenes. As a last resort, the system will automatically loop the 5-second video if the scene is longer.",
+      "One or more DETAILED, DESCRIPTIVE prompts for AI video generation. Each string must be a full cinematic prompt describing the scene visually (e.g., 'A golden sunset over a calm ocean with gentle waves lapping the shore'). DO NOT use simple keywords like 'beach' or 'sunset'. The prompts will be joined and sent directly to the EG-Autonomous AI video generation API. IMPORTANT: The generated video is fixed at 5 seconds long. Keep the spoken 'text' short (under 5 seconds of speech) per scene, and split longer paragraphs into multiple scenes.",
     ),
 });
 export type SceneInput = z.infer<typeof sceneInput>;

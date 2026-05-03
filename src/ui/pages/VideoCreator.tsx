@@ -32,13 +32,13 @@ import {
 
 interface SceneFormData {
   text: string;
-  searchTerms: string; // Changed to string
+  videoPrompts: string; // Descriptive AI prompt for video generation
 }
 
 const VideoCreator: React.FC = () => {
   const navigate = useNavigate();
   const [scenes, setScenes] = useState<SceneFormData[]>([
-    { text: "", searchTerms: "" },
+    { text: "", videoPrompts: "" },
   ]);
   const [config, setConfig] = useState<RenderConfig>({
     paddingBack: 1500,
@@ -80,7 +80,7 @@ const VideoCreator: React.FC = () => {
   }, []);
 
   const handleAddScene = () => {
-    setScenes([...scenes, { text: "", searchTerms: "" }]);
+    setScenes([...scenes, { text: "", videoPrompts: "" }]);
   };
 
   const handleRemoveScene = (index: number) => {
@@ -114,7 +114,7 @@ const VideoCreator: React.FC = () => {
       // Convert scenes to the expected API format
       const apiScenes: SceneInput[] = scenes.map((scene) => ({
         text: scene.text,
-        searchTerms: scene.searchTerms
+        videoPrompts: scene.videoPrompts
           .split(",")
           .map((term) => term.trim())
           .filter((term) => term.length > 0),
@@ -213,12 +213,13 @@ const VideoCreator: React.FC = () => {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Search Terms (comma-separated)"
-                  value={scene.searchTerms}
+                  label="Video Prompt (detailed description)"
+                  placeholder="e.g. A golden sunset over a calm ocean with gentle waves lapping the shore"
+                  value={scene.videoPrompts}
                   onChange={(e) =>
-                    handleSceneChange(index, "searchTerms", e.target.value)
+                    handleSceneChange(index, "videoPrompts", e.target.value)
                   }
-                  helperText="Enter keywords for background video, separated by commas"
+                  helperText="Write a detailed cinematic description of the scene — NOT simple keywords. Separate multiple prompts with commas."
                   required
                 />
               </Grid>

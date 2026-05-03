@@ -78,7 +78,7 @@ const Docs: React.FC = () => {
   "scenes": [
     {
       "text": "This is a test scene.",
-      "searchTerms": ["technology", "code", "future"]
+      "videoPrompts": ["A futuristic developer working on glowing holographic code interfaces in a dark high-tech lab"]
     }
   ],
   "config": {
@@ -143,7 +143,7 @@ const Docs: React.FC = () => {
           <Typography variant="body2" paragraph sx={{ color: 'text.secondary' }}>
             Allows the agent to pass a list of scenes and configuration to queue a video. 
             <br/><br/>
-            <b>Important Agent Instructions:</b> The agent is instructed to combine <code>searchTerms</code> into a single prompt for the EG-Autonomous API. Since background videos are exactly 5 seconds long, agents should keep spoken text under 5 seconds per scene, or divide long text into multiple scenes. If a scene exceeds 5 seconds, the background video will automatically loop.
+            <b>Important Agent Instructions:</b> The <code>videoPrompts</code> field must contain <strong>detailed, cinematic descriptions</strong> of the scene (e.g. <em>"A glowing sunrise over a misty mountain range with golden light piercing through the clouds"</em>). Do NOT use simple keywords like <code>"technology"</code> or <code>"nature"</code>. The prompts are sent directly to the EG-Autonomous AI video generation API. Since background videos are exactly 5 seconds long, agents should keep spoken text under 5 seconds per scene, or divide long text into multiple scenes.
           </Typography>
 
           <Typography variant="subtitle1" sx={{ color: '#fff', mt: 2, fontWeight: 'bold' }}>2. get-video-status</Typography>

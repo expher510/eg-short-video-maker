@@ -138,7 +138,7 @@ export class ShortCreator {
 
       await this.ffmpeg.saveToMp3(audioStream, tempMp3Path);
       const video = await this.egAutonomousApi.findVideo(
-        scene.searchTerms,
+        scene.videoPrompts,
         audioLength,
         excludeVideoIds,
         orientation,
