@@ -165,7 +165,18 @@ const VideoCreator: React.FC = () => {
         </Typography>
 
         {scenes.map((scene, index) => (
-          <Paper key={index} sx={{ p: 3, mb: 3 }}>
+          <Paper key={index} sx={{ 
+            p: 3, 
+            mb: 3, 
+            backgroundColor: 'rgba(17, 34, 64, 0.7)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+            transition: 'transform 0.2s',
+            '&:hover': {
+              transform: 'translateY(-2px)'
+            }
+          }}>
             <Box
               display="flex"
               justifyContent="space-between"
@@ -227,11 +238,18 @@ const VideoCreator: React.FC = () => {
 
         <Divider sx={{ mb: 4 }} />
 
-        <Typography variant="h5" component="h2" gutterBottom>
+        <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 3 }}>
           Video Configuration
         </Typography>
 
-        <Paper sx={{ p: 3, mb: 3 }}>
+        <Paper sx={{ 
+          p: 3, 
+          mb: 3,
+          backgroundColor: 'rgba(17, 34, 64, 0.7)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+        }}>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
               <TextField
