@@ -3,7 +3,7 @@ import { getOrientationConfig } from "../../components/utils";
 import { logger } from "../../logger";
 import { OrientationEnum, type Video } from "../../types/shorts";
 
-const defaultTimeoutMs = 300000; // 5 minutes for generation
+const defaultTimeoutMs = 900000; // 15 minutes for generation
 const pollIntervalMs = 5000; // Poll every 5 seconds
 
 export class EGAutonomousAPI {
@@ -60,6 +60,8 @@ export class EGAutonomousAPI {
             },
           }
         );
+
+        logger.debug({ jobId, status: pollResponse.data.status }, "Polling EG-Autonomous API");
 
         if (pollResponse.data.success && pollResponse.data.status === "completed") {
           const videoUrl = pollResponse.data.videos?.[0];
