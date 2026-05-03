@@ -149,7 +149,7 @@ const VideoCreator: React.FC = () => {
 
   return (
     <Box maxWidth="md" mx="auto" py={4}>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ color: '#e2e8f0', fontWeight: 700, mb: 4 }}>
         Create New Video
       </Typography>
 
@@ -160,7 +160,7 @@ const VideoCreator: React.FC = () => {
       )}
 
       <form onSubmit={handleSubmit}>
-        <Typography variant="h5" component="h2" gutterBottom>
+        <Typography variant="h5" component="h2" gutterBottom sx={{ color: '#ccd6f6', fontWeight: 600 }}>
           Scenes
         </Typography>
 
@@ -231,14 +231,20 @@ const VideoCreator: React.FC = () => {
             variant="outlined"
             startIcon={<AddIcon />}
             onClick={handleAddScene}
+            sx={{
+              borderColor: '#64ffda',
+              color: '#64ffda',
+              fontWeight: 600,
+              '&:hover': { borderColor: '#64ffda', backgroundColor: 'rgba(100,255,218,0.08)' }
+            }}
           >
             Add Scene
           </Button>
         </Box>
 
-        <Divider sx={{ mb: 4 }} />
+        <Divider sx={{ mb: 4, borderColor: 'rgba(255,255,255,0.1)' }} />
 
-        <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 3 }}>
+        <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 3, color: '#ccd6f6', fontWeight: 600 }}>
           Video Configuration
         </Typography>
 
@@ -367,10 +373,18 @@ const VideoCreator: React.FC = () => {
           <Button
             type="submit"
             variant="contained"
-            color="primary"
             size="large"
             disabled={loading}
-            sx={{ minWidth: 200 }}
+            sx={{ 
+              minWidth: 200,
+              backgroundColor: '#1565c0',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '1rem',
+              py: 1.5,
+              '&:hover': { backgroundColor: '#1976d2' },
+              '&:disabled': { backgroundColor: 'rgba(21, 101, 192, 0.4)', color: '#aaa' }
+            }}
           >
             {loading ? (
               <CircularProgress size={24} color="inherit" />

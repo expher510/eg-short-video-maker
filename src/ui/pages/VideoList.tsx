@@ -100,21 +100,42 @@ const VideoList: React.FC = () => {
       )}
       
       {videos.length === 0 ? (
-        <Paper sx={{ p: 4, textAlign: 'center' }}>
-          <Typography variant="body1" color="text.secondary" gutterBottom>
+        <Paper sx={{ 
+          p: 6, 
+          textAlign: 'center',
+          backgroundColor: 'rgba(17, 34, 64, 0.7)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+        }}>
+          <Typography variant="h6" sx={{ color: '#ccd6f6', mb: 2 }}>
             You haven't created any videos yet.
           </Typography>
+          <Typography variant="body2" sx={{ color: '#8892b0', mb: 3 }}>
+            Use EG-Autonomous API to generate AI-powered videos in seconds.
+          </Typography>
           <Button 
-            variant="outlined" 
+            variant="contained"
             startIcon={<AddIcon />}
             onClick={handleCreateNew}
-            sx={{ mt: 2 }}
+            sx={{ 
+              mt: 1,
+              backgroundColor: '#1565c0',
+              color: '#fff',
+              fontWeight: 600,
+              '&:hover': { backgroundColor: '#1976d2' }
+            }}
           >
             Create Your First Video
           </Button>
         </Paper>
       ) : (
-        <Paper>
+        <Paper sx={{
+          backgroundColor: 'rgba(17, 34, 64, 0.7)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+        }}>
           <List>
             {videos.map((video, index) => {
               const videoId = video?.id || '';
